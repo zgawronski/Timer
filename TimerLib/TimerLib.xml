@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TimerLib</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:TimerLib.Time" -->
+        <member name="F:TimerLib.Time.h">
+            <summary>
+            dodanie zmiennych private byte i public ale readonly byte
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+            <param name="Hours"></param>
+            <param name="Minutes"></param>
+            <param name="Seconds"></param>
+        </member>
+        <member name="F:TimerLib.Time.m">
+            <summary>
+            dodanie zmiennych private byte i public ale readonly byte
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+            <param name="Hours"></param>
+            <param name="Minutes"></param>
+            <param name="Seconds"></param>
+        </member>
+        <member name="F:TimerLib.Time.s">
+            <summary>
+            dodanie zmiennych private byte i public ale readonly byte
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+            <param name="Hours"></param>
+            <param name="Minutes"></param>
+            <param name="Seconds"></param>
+        </member>
+        <member name="M:TimerLib.Time.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            konstruktor dla byte
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:TimerLib.Time.#ctor(System.String)">
+            <summary>
+            konstruktor dla string
+            </summary>
+            <param name="time"></param>
+        </member>
+        <member name="M:TimerLib.Time.ToString">
+            <summary>
+            przeciążenie ToString()
+            </summary>
+            <returns> ustawia odpowiedni format wyświetlania czasu </returns>
+        </member>
+        <member name="M:TimerLib.Time.op_Equality(TimerLib.Time,TimerLib.Time)">
+            <summary>
+            przeciążenie operatora ==
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <returns> sprawdza czy podane parametry są równe </returns>
+        </member>
+        <member name="M:TimerLib.Time.op_Inequality(TimerLib.Time,TimerLib.Time)">
+            <summary>
+            przeciążenie operatora !=
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <returns> sprawdza czy podane parametry są różne </returns>
+        </member>
+        <member name="M:TimerLib.Time.op_Addition(TimerLib.Time,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora +
+            </summary>
+            <param name="t1"></param>
+            <param name="tp1"></param>
+            <returns> dodaje parametr t1 do tp1 </returns>
+        </member>
+        <member name="M:TimerLib.Time.op_Subtraction(TimerLib.Time,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora +
+            </summary>
+            <param name="t1"></param>
+            <param name="tp1"></param>
+            <returns> odejmuje parametr tp1 od t1 </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TimerLib.Time.op_LessThan(TimerLib.Time,TimerLib.Time)" -->
+        <member name="M:TimerLib.Time.op_GreaterThan(TimerLib.Time,TimerLib.Time)">
+            <summary>
+            przeciążenie operatora >
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <returns> sprawdza czy parametr t1 jest większy od t2 </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TimerLib.Time.op_LessThanOrEqual(TimerLib.Time,TimerLib.Time)" -->
+        <member name="M:TimerLib.Time.op_GreaterThanOrEqual(TimerLib.Time,TimerLib.Time)">
+            <summary>
+            przeciążenie operatora >=
+            </summary>
+            <param name="t1"></param>
+            <param name="t2"></param>
+            <returns> sprawdza czy parametr t1 jest większy lub równy od t2 </returns>
+        </member>
+        <member name="M:TimerLib.Time.Equals(System.Object)">
+            <summary>
+            przeciążenie Equals()
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:TimerLib.Time.GetHashCode">
+            <summary>
+            przeciążenie GetHashCode()
+            </summary>
+        </member>
+        <member name="M:TimerLib.Time.PlusTime(TimerLib.TimePeriod)">
+            <summary>
+            metoda dodająca okres czasu
+            </summary>
+            <param name="tp1"></param>
+            <returns> zwraca czas powiększony o wybrany okres czasu</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:TimerLib.TimePeriod" -->
+        <member name="F:TimerLib.TimePeriod.sec">
+            <summary>
+            dodanie zmiennych prywatnego long, oraz publicznego, ale tylko do odczytu long
+            </summary>
+            <param name="sec"></param>
+            <param name="Seconds"></param>
+        </member>
+        <member name="M:TimerLib.TimePeriod.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            konstruktor dla byte
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+        </member>
+        <member name="M:TimerLib.TimePeriod.#ctor(System.Int64)">
+            <sumary>
+            kostruktor dla long
+            </sumary>
+        </member>
+        <member name="M:TimerLib.TimePeriod.#ctor(System.String)">
+            <sumary>
+            konstruktor dla string
+            </sumary>
+        </member>
+        <member name="M:TimerLib.TimePeriod.ToString">
+            <summary>
+            przeciążenie ToString()
+            </summary>
+            <returns> 
+            ustawia odpowiedni format wyświetlania czasu
+            </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.ToSeconds(TimerLib.Time)">
+            <summary>
+            Metoda ToSeconds()
+            </summary>
+            <param name="t1"></param>
+            <returns> przelicza godziny na sekundy </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.Equals(System.Object)">
+            <summary>
+            przeciążenie Equals()
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:TimerLib.TimePeriod.GetHashCode">
+            <summary>
+            przeciążenie GetHashCode()
+            </summary>
+        </member>
+        <member name="M:TimerLib.TimePeriod.op_Equality(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora ==
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> sprawdza czy podane parametry są równe </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.op_Inequality(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora !=
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> sprawdza czy podane parametry są różne </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TimerLib.TimePeriod.op_LessThan(TimerLib.TimePeriod,TimerLib.TimePeriod)" -->
+        <member name="M:TimerLib.TimePeriod.op_GreaterThan(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora >
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> sprawdza czy parametr tp1 jest większy od tp2 </returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:TimerLib.TimePeriod.op_LessThanOrEqual(TimerLib.TimePeriod,TimerLib.TimePeriod)" -->
+        <member name="M:TimerLib.TimePeriod.op_GreaterThanOrEqual(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora >=
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> sprawdza czy parametr tp1 jest większy lub równy od tp2 </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.op_Addition(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora +
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> dodaje parametr tp1 do tp2 </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.op_Subtraction(TimerLib.TimePeriod,TimerLib.TimePeriod)">
+            <summary>
+            przeciążenie operatora -
+            </summary>
+            <param name="tp1"></param>
+            <param name="tp2"></param>
+            <returns> odejmuje parametr tp2 od tp1 </returns>
+        </member>
+        <member name="M:TimerLib.TimePeriod.PlusTimePeriod(TimerLib.TimePeriod)">
+            <summary>
+            metoda dodająca okres czasu
+            </summary>
+            <param name="tp1"></param>
+            <returns> zwraca okres czasu powiększony o inny okres czasu</returns>
+        </member>
+    </members>
+</doc>
