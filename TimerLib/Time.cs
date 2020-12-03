@@ -25,7 +25,7 @@ namespace TimerLib
                 "{0:00}:{1:00}:{2:00}",
                 this.Hours, this.Minutes, this.Seconds);
         }
-        public static bool operator == (Time t1, Time t2)
+        public static bool operator == (Time t1, Time t2) // przeciążenie operatora ==
         {
 
             if (Time.ReferenceEquals(t1, null))
@@ -40,13 +40,13 @@ namespace TimerLib
             return t1.Equals(t2);
         }
 
-        public static bool operator != (Time t1, Time t2)
+        public static bool operator != (Time t1, Time t2) // przeciążenie operatora !=
         {
             return !(t1 == t2);
         }
 
 
-        public static Time operator +(Time t1, TimePeriod tp1)
+        public static Time operator + (Time t1, TimePeriod tp1) // przeciążenie operatora +
         {
             long sec = ToSeconds(t1) + tp1.Seconds;
 
@@ -67,29 +67,7 @@ namespace TimerLib
 
             return new Time(h, m, s);
         }
-        public void Time_Plus(TimePeriod tp1)
-        {
-            long sec = Hours * 3600 + Minutes * 60 + Seconds + tp1.Seconds;
-
-            byte h;
-            if (sec / 3600 > 23)
-            {
-                h = (byte)((sec / 3600) % 24);
-            }
-            else
-            {
-                h = (byte)((sec / 3600));
-            }
-
-            byte m = (byte)((sec / 60) % 60);
-            byte s = (byte)(sec % 60);
-
-
-            this.h = h;
-            this.m = m;
-            this.s = s;
-        }
-        public static Time operator -(Time t1, TimePeriod tp1)
+        public static Time operator - (Time t1, TimePeriod tp1) // przeciążenie operatora -
         {
             long sec = ToSeconds(t1) - tp1.Seconds;
             if (sec < 0)
@@ -113,22 +91,22 @@ namespace TimerLib
             return new Time(h, m, s);
 
         }
-        public static bool operator < (Time t1, Time t2)
+        public static bool operator < (Time t1, Time t2) // przeciążenie operatora <
         {
             return t1.CompareTo(t2) < 0;
         }
 
-        public static bool operator > (Time t1, Time t2)
+        public static bool operator > (Time t1, Time t2) // przeciążenie operatora >
         {
             return t1.CompareTo(t2) > 0;
         }
 
-        public static bool operator <= (Time t1, Time t2)
+        public static bool operator <= (Time t1, Time t2) // przeciążenie operatora <=
         {
             return t1.CompareTo(t2) <= 0;
         }
 
-        public static bool operator >= (Time t1, Time t2)
+        public static bool operator >= (Time t1, Time t2) // przeciążenie operatora >=
         {
             return t1.CompareTo(t2) >= 0;
         }
@@ -158,6 +136,28 @@ namespace TimerLib
             long timeSeconds = t1.h * 3600 + t1.m * 60 + t1.s;
 
             return timeSeconds;
+        }
+        public void AddTime(TimePeriod tp1)
+        {
+            long sec = Hours * 3600 + Minutes * 60 + Seconds + tp1.Seconds;
+
+            byte h;
+            if (sec / 3600 > 23)
+            {
+                h = (byte)((sec / 3600) % 24);
+            }
+            else
+            {
+                h = (byte)((sec / 3600));
+            }
+
+            byte m = (byte)((sec / 60) % 60);
+            byte s = (byte)(sec % 60);
+
+
+            this.h = h;
+            this.m = m;
+            this.s = s;
         }
     }
 }
