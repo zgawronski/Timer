@@ -4,7 +4,11 @@
         <name>TimerLib</name>
     </assembly>
     <members>
-        <!-- Badly formed XML comment ignored for member "T:TimerLib.Time" -->
+        <member name="T:TimerLib.Time">
+            <summary>
+            struktura Time z zaimplementowaniem IEquatable i IComparable
+            </summary>
+        </member>
         <member name="F:TimerLib.Time.h">
             <summary>
             dodanie zmiennych private byte i public ale readonly byte
@@ -126,7 +130,11 @@
             <param name="tp1"></param>
             <returns> zwraca czas powiększony o wybrany okres czasu</returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:TimerLib.TimePeriod" -->
+        <member name="T:TimerLib.TimePeriod">
+            <summary>
+             struktura TimePeriod z zaimplementowaniem IEquatable i IComparable
+            </summary>
+        </member>
         <member name="F:TimerLib.TimePeriod.sec">
             <summary>
             dodanie zmiennych prywatnego long, oraz publicznego, ale tylko do odczytu long
