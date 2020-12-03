@@ -10,7 +10,8 @@ namespace TimerLib
         public readonly byte Minutes => m;
         public readonly byte Seconds => s;
 
-        public Time(byte h, byte m, byte s)
+        #region Constructor Time==========================
+        public Time(byte h, byte m = 0, byte s = 0) //konstruktor dla byte
         {
             if (h > 23 || h <= 0 || m > 59 || m <= 0 || s > 59 || s <= 0) // sprawdza poprawność formatu czasu
                 throw new ArgumentException("Błędny format czasu");
@@ -19,12 +20,31 @@ namespace TimerLib
             this.m = m;
             this.s = s;
         }
+        
+        public Time(string time) // konstruktor dla string
+        {
+            string[] newT = time.Split(':');
+            byte[] tabT = new byte[3] { 00, 00, 00 };
+            for (int i = 0; i < newT.Length; i++)
+            {
+                tabT[i] = Byte.Parse(newT[i]);
+            }
+            h = tabT[0];
+            m = tabT[1];
+            s = tabT[2];
+
+            if (h > 23 || h <= 0 || m > 59 || m <= 0 || s > 59 || s <= 0) // sprawdza poprawność formatu czasu
+                throw new ArgumentException("Błędny format czasu");
+        }
+
+        #endregion
         public override string ToString() // ustawia odpowiedni format wyświetlania czasu
         {
             return String.Format(
                 "{0:00}:{1:00}:{2:00}",
                 this.Hours, this.Minutes, this.Seconds);
         }
+        #region Time Operators==================
         public static bool operator == (Time t1, Time t2) // przeciążenie operatora ==
         {
 
@@ -110,6 +130,7 @@ namespace TimerLib
         {
             return t1.CompareTo(t2) >= 0;
         }
+        #endregion
 
         public bool Equals(Time other)
         {
@@ -121,10 +142,10 @@ namespace TimerLib
         }
         public int CompareTo(Time other)
         {
-            var HoursComparsion = Hours.CompareTo(other.Hours);
-            if (HoursComparsion != 0) return HoursComparsion;
-            var MinutesComparsion = Minutes.CompareTo(other.Minutes);
-            if (MinutesComparsion != 0) return MinutesComparsion;
+            var HoursCompare = Hours.CompareTo(other.Hours);
+            if (HoursCompare != 0) return HoursCompare;
+            var MinutesCompare = Minutes.CompareTo(other.Minutes);
+            if (MinutesCompare != 0) return MinutesCompare;
             return Seconds.CompareTo(other.Seconds);
         }
         public override int GetHashCode()
@@ -137,7 +158,7 @@ namespace TimerLib
 
             return timeSeconds;
         }
-        public void AddTime(TimePeriod tp1)
+        public void PlusTime(TimePeriod tp1)
         {
             long sec = Hours * 3600 + Minutes * 60 + Seconds + tp1.Seconds;
 
