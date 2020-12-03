@@ -7,7 +7,7 @@ namespace Timer
     {
         static void Main(string[] args)
         {
-            Time t1 = new Time(22, 20, 5);
+            Time t1 = new Time(0, 20, 5);
             Time t2 = new Time(1, 10, 10);
             Time t3 = new Time("16:35:21");
             Console.WriteLine(t1.ToString());

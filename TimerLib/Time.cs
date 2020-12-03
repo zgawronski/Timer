@@ -13,7 +13,7 @@ namespace TimerLib
         #region Constructor Time==========================
         public Time(byte h, byte m = 0, byte s = 0) //konstruktor dla byte
         {
-            if (h > 23 || h <= 0 || m > 59 || m <= 0 || s > 59 || s <= 0) // sprawdza poprawność formatu czasu
+            if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) // sprawdza poprawność formatu czasu
                 throw new ArgumentException("Błędny format czasu");
 
             this.h = h;
@@ -33,7 +33,7 @@ namespace TimerLib
             m = tabT[1];
             s = tabT[2];
 
-            if (h > 23 || h <= 0 || m > 59 || m <= 0 || s > 59 || s <= 0) // sprawdza poprawność formatu czasu
+            if (h > 23 || h < 0 || m > 59 || m < 0 || s > 59 || s < 0) // sprawdza poprawność formatu czasu
                 throw new ArgumentException("Błędny format czasu");
         }
 
@@ -130,7 +130,6 @@ namespace TimerLib
         {
             return t1.CompareTo(t2) >= 0;
         }
-        #endregion
 
         public bool Equals(Time other)
         {
@@ -180,5 +179,6 @@ namespace TimerLib
             this.m = m;
             this.s = s;
         }
+        #endregion
     }
 }

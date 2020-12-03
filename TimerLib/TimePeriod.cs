@@ -15,7 +15,7 @@ namespace TimerLib
 
             this.sec = h * 3600 + m * 60 + s; // przeliczenie czasu na sekundy
             
-            if (h <= 0 || m > 59 || m <= 0 || s > 59 || s <= 0)     
+            if (h <= 0 || m > 59 || m < 0 || s > 59 || s < 0)     
                 throw new ArgumentException("Błędny format czasu"); // sprawdzenie poprawności formatu
         }
         public TimePeriod(long seconds) // kostruktor long
@@ -33,7 +33,7 @@ namespace TimerLib
             }
             this.sec = tabT[0] * 3600 + tabT[1] * 60 + tabT[2];
 
-           if (tabT[1] <= 0 || tabT[1] > 59 || tabT[2] <= 0 || tabT[2] > 59)     
+           if (tabT[1] < 0 || tabT[1] > 59 || tabT[2] < 0 || tabT[2] > 59)     
                 throw new ArgumentException("Błędny format czasu");
         }
 
@@ -46,6 +46,7 @@ namespace TimerLib
 
             return timeSeconds;
         }
+        #region TimePeriod Operators============
         public bool Equals(TimePeriod other)
         {
             return Seconds == other.Seconds;
@@ -64,7 +65,6 @@ namespace TimerLib
         {
             return Seconds.CompareTo(other.Seconds);
         }
-        #region TimePeriod Operators============
         public static bool operator == (TimePeriod tp1, TimePeriod tp2) // przeciążenie operatora ==
         {
 
