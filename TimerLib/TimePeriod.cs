@@ -3,7 +3,7 @@
 namespace TimerLib
 {
     /// <summary>
-    ///  struktura TimePeriod z zaimplementowaniem IEquatable<> i IComparable<>
+    ///  struktura TimePeriod z zaimplementowaniem IEquatable i IComparable
     /// </summary>
     public struct TimePeriod : IEquatable<TimePeriod>, IComparable<TimePeriod>
     {
